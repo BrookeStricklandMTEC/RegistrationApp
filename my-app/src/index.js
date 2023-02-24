@@ -2,12 +2,17 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import LoginSign from './Login';
+import Login from './Login';
+import Sign from './Login';
+import Dashboard from './user';
 import reportWebVitals from './reportWebVitals';
+
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <LoginSign/>
+    <Dashboard />
+
   </React.StrictMode>
 );
 
