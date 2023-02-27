@@ -1,4 +1,4 @@
-.search i {
+.search .searchIcon {
     position: absolute;
     border-radius: 10px;
 }
@@ -9,9 +9,11 @@
 }
 
 .searchIcon{
-    padding: 5px;
+    padding: 15px;
+    padding-left:5px;
     min-width:40px;
     border-radius: 10px;
+    cursor: pointer;
 }
 
 .input{
