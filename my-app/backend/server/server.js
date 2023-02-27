@@ -3,8 +3,12 @@
 //     require('dotenv').config()
 // }
 
-// const express = require('express');
-// const app = express();
+const express = require('express');
+const app = express();
+const PORT = process.env.PORT || 4000; 
+const path = require('path');
+
+const { pool } = require('./index.js');
 // const bcrypt = require('bcrypt');
 // const passport = require('passport')
 // const flash = require('express-flash')
@@ -20,7 +24,7 @@
 //     id => users.find(user => user.id === id) 
 // })
 
-// app.use(express.urlencoded({extended: false}))
+// app.use(express.urlencoded({extended: false})) // send details from frontend to backend
 // app.use(flash())
 // app.use(session({
 //     secret: process.env.SESSION_SECRET,
@@ -32,9 +36,16 @@
 // app.use(passport.session())
 // app.use(methodOverride('_method'))
 
-// app.get('/',checkAuthenticated, (req, res) => {
-//     res.render('App.js') //pass in req.user.name from db ?  
-// })
+app.set('client','./my-app/client/src/')
+
+app.use(express.static('./client/src/'))
+
+app.set('html Engine', 'html')
+
+app.get('/', (req, res) => {
+  res.sendFile(path.join( 'App.js', { root: path.join(__dirname, 'my-app/client/src/App.js') })) 
+})
+
 
 // app.get('/login', checkNotAuthenticated, (req,res) => {
 //     res.render('/login') 
@@ -80,6 +91,6 @@
 //     next()
 // }
 
-// app.listen(4000, () => {
-//     console.log('listening on port 4000')
-// });
+app.listen(PORT, () => {
+    console.log(`listening on port ${PORT}`)
+});

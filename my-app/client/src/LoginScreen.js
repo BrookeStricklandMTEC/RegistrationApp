@@ -1,8 +1,5 @@
 import React, {useState} from 'react';
 import logo from "./IMG/Logo.jpg"
-import {BrowserRouter as Router, Link, Route, Routes} from 'react-router-dom'; 
-import { useState } from 'react';
-
 import { Link } from 'react-router-dom';
 
 function Login() {
@@ -24,4 +21,6 @@ function Login() {
         </div>
       </>
     );
-  }
+}
+
+export default Login

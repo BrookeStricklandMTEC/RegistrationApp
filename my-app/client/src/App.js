@@ -2,24 +2,22 @@ import logo from './logo.svg';
 import './App.css';
 import {BrowserRouter as Router, Link, Route, Routes} from 'react-router-dom'
 
-import Login from './Login.js'
-import Register from './'
+import LoginSign from './LoginSign';
+import Login from './LoginScreen.js';
+import LoginScreen from './LoginScreen';
+import Register from './Register.js';
 
 function App() {
-// const [login, setLogin] = useState();
-// const [register, setRegister] = useState();
-
-  return (
-    <ResultsContext.Provider> 
-      <Router> 
-       <Routes> 
-        <h1> Welcome </h1>
-        <Route path='/Login' element={'./LoginScreen.js'}> Login </Route>
-        <Route path='/Register' element={'./Sign.js'}> Register </Route>
-       </Routes>
-    </Router>
-    </ResultsContext.Provider>
+return (
+  <Router> 
+    <Routes>
+      <Route path='/' element={<div className='whiteScreen'> <LoginSign> </LoginSign>  </div>} > </Route>
+      <Route path='/Login' element={ <div className='whiteScreen'> <LoginScreen> </LoginScreen> </div>} > </Route>
+      <Route path='/Register' element={ <div className='whiteScreen1'> <Register> </Register> </div>} > </Route>
+      {/* Add future paths down here */}
+    </Routes>
+ </Router>
   );
 }
 
-export default App;
+export default App 

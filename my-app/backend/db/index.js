@@ -1,27 +1,15 @@
 //-----postgres cool stuff---------
 
-// const Pool = require('pg').Pool;
+require('dotenv').congig();
+const { Pool } = require('pg')
 
-// let dbURL = {
-//     connectionString: process.env.DATABASE_URL   || 'postgres://postgres:postgres@localhost:5432/registration-app'
-// }
+    const connectionString = `postgresql://
+    ${process.env.DB_USER}:${process.env.DB_PASSWORD}
+    @${process.env.DB_HOST}: ${process.env.DB_PORT}
+    /${process.env.DB_DATABASE}`
 
-// const pool = new Pool(dbURL);
+const pool = new Pool({
+    connectionString: isProduction ? process.env.DATABASE_URL : connectionString
+});
 
-// pool.connect();
-
-// exports.getUsers = (req, res) => {
-//     pool.query('SELECT * from users', (err, results) => {
-//         if (err) throw err;
-//         for (let row of results.rows) {
-//             console.log(JSON.stringify(row));
-//         }
-//         res.status(200).json(results.rows);
-//     })
-// }
-
-// exports.authUserByName = async (username) => {
-//     const results = await 
-//     pool.query('SELECT * from users where username = $1', [username]) 
-//     return json(results.rows[0]);
-// }
+module.exports = { pool };

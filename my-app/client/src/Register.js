@@ -18,9 +18,11 @@ function Register() {
                     <input type="password" placeholder="Password" className='input padtop' required></input>
                 </div>
   
-                <Link className='button1 padtop2'> Sign Up </Link>
+                <Link className='button1 padtop2' to={'/Register'}> Sign Up </Link>
             </div>
         </div>
       </>
     );
 }
+
+export default Register
