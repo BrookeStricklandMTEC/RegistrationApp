@@ -18,7 +18,7 @@ function Login() {
 
                 <Link className='button1 padtop1'> Login </Link> 
                 {/* ^^ add node function that reads users priviliges based off login info */}
-                <Link className='forgotPass'> Forgot Password</Link>
+                <Link className='forgotPass'> Forgot Password </Link>
                 {/* idk if we will be able to do this function in time for project submission, might have to implement afterwards */}
             </div>
         </div>
