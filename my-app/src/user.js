@@ -14,27 +14,29 @@ import {
 } from '@fortawesome/free-solid-svg-icons';
 import logo from "./IMG/Logo.jpg"
 
+var arrow = faArrowLeftLong
+
 function Dashboard() {
     return(
         <>
             <div className='sidebar' id="mysidebar">
                 <div className="top">
                     <div className='a'>
-                        <FontAwesomeIcon icon={faHouse} /> <a>Dashbaord</a>
+                        <FontAwesomeIcon icon={faHouse} /> <a className="text">Dashbaord</a>
                     </div>
                     <div className='a'>
-                        <FontAwesomeIcon icon={faCalendar} /> <a>Calendar</a>
+                        <FontAwesomeIcon icon={faCalendar} /> <a className="text">Calendar</a>
                     </div>
                     <div className='a'>
-                        <FontAwesomeIcon icon={faA} /><FontAwesomeIcon icon={faPlus} /> <a>Grades</a>
+                        <FontAwesomeIcon icon={faA} /><FontAwesomeIcon icon={faPlus} /> <a className="text">Grades</a>
                     </div>
                     <div className='a'>
-                        <FontAwesomeIcon icon={faEnvelope} /> <a>Inbox</a>
+                        <FontAwesomeIcon icon={faEnvelope} /> <a className="text">Inbox</a>
                     </div>
 
                 </div>
                 <div className="bottom">
-                    <FontAwesomeIcon icon={faArrowLeftLong} className="arrow"/>
+                    <FontAwesomeIcon icon={arrow} className="arrow" onClick={closeNav}/>
                 </div>
             </div>
 
@@ -44,7 +46,7 @@ function Dashboard() {
                 </div>
                 <div className="right">
                     <div className='search'>
-                        <FontAwesomeIcon icon={faSearch} className="searchIcon" onClick={closeNav}/>
+                        <FontAwesomeIcon icon={faSearch} className="searchIcon" />
                         <input className='input' placeholder='Search'></input>
                     </div>
                     
@@ -63,12 +65,17 @@ function Dashboard() {
 function openNav() {
     document.getElementById("mysidebar").style.width = "200px";
     document.getElementById("main").style.marginLeft = "200px";
+    
+
 }
 
 
 function closeNav(){
-    document.getElementById("mysidebar").style.width = "0px";
-    document.getElementById("main").style.marginLeft = "0px";
+    document.getElementById("mysidebar").style.width = "75px";
+    document.getElementById("main").style.marginLeft = "75px";
+    document.querySelectorAll(".text").forEach(element =>{
+        element.innerHTML = ""
+    })
 }
 
 export default Dashboard;
