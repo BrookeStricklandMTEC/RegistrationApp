@@ -3,6 +3,7 @@ import React, {useState} from 'react';
 import logo from "./IMG/Logo.jpg"
 
 import { Link } from 'react-router-dom';
+import LoginScreen from './LoginScreen'
 
 function Register() {
     return (
@@ -18,7 +19,7 @@ function Register() {
                     <input type="password" placeholder="Password" className='input padtop' required></input>
                 </div>
   
-                <Link className='button1 padtop2' to={'/Register'}> Sign Up </Link>
+                <Link className='button1 padtop2' to={'/LoginScreen'}> Sign Up </Link>
             </div>
         </div>
       </>

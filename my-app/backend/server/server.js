@@ -5,17 +5,28 @@
 
 const express = require('express');
 const app = express();
-const PORT = process.env.PORT || 4000; 
+const PORT = process.env.PORT || 3001; 
 const path = require('path');
 
-const { pool } = require('./index.js');
-// const bcrypt = require('bcrypt');
-// const passport = require('passport')
-// const flash = require('express-flash')
-// const session = require('express-session')
-// const methodOverride = require('method-override')
+// const { pool } = require('my-app/backend/db/index.js'); //this needs to be fixed 
+const bcrypt = require('bcrypt');
+const passport = require('passport');
+const flash = require('express-flash');
+const session = require('express-session');
+const methodOverride = require('method-override');
 
-// const users = [] 
+
+app.use(express.urlencoded({extended:false}))
+
+app.get('/api', (req,res) => {
+ res.send('ayup');   
+})
+
+
+
+// const db = require('./db/index')
+
+// const users = [];
 
 // const initializePassport = require('../auth/passport-config')
 // initializePassport(
@@ -27,7 +38,7 @@ const { pool } = require('./index.js');
 // app.use(express.urlencoded({extended: false})) // send details from frontend to backend
 // app.use(flash())
 // app.use(session({
-//     secret: process.env.SESSION_SECRET,
+//     secret: process.env.SESSION_SECRET, //this will need to be updated to what is in .env now
 //     resave: false, 
 //     saveUninitialized: false,
 // }))
@@ -35,16 +46,6 @@ const { pool } = require('./index.js');
 // app.use(passport.initialize())
 // app.use(passport.session())
 // app.use(methodOverride('_method'))
-
-app.set('client','./my-app/client/src/')
-
-app.use(express.static('./client/src/'))
-
-app.set('html Engine', 'html')
-
-app.get('/', (req, res) => {
-  res.sendFile(path.join( 'App.js', { root: path.join(__dirname, 'my-app/client/src/App.js') })) 
-})
 
 
 // app.get('/login', checkNotAuthenticated, (req,res) => {
