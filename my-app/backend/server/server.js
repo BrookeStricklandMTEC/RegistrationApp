@@ -5,10 +5,10 @@
 
 const express = require('express');
 const app = express();
-const PORT = process.env.PORT || 3001; 
-const path = require('path');
+const PORT = process.env.PORT || 3000; 
+const db = require('.././db/index')
 
-// const { pool } = require('my-app/backend/db/index.js'); //this needs to be fixed 
+const { Pool } = require('../db/index.js');  
 const bcrypt = require('bcrypt');
 const passport = require('passport');
 const flash = require('express-flash');
@@ -18,13 +18,9 @@ const methodOverride = require('method-override');
 
 app.use(express.urlencoded({extended:false}))
 
-app.get('/api', (req,res) => {
- res.send('ayup');   
-})
+app.get('/api', db.getUsers)
 
 
-
-// const db = require('./db/index')
 
 // const users = [];
 
@@ -46,15 +42,6 @@ app.get('/api', (req,res) => {
 // app.use(passport.initialize())
 // app.use(passport.session())
 // app.use(methodOverride('_method'))
-
-
-// app.get('/login', checkNotAuthenticated, (req,res) => {
-//     res.render('/login') 
-// })
-
-// app.get('/register', checkNotAuthenticated, (req,res) => {
-//     res.render('register.js') 
-// })
 
 // app.post('/login', checkNotAuthenticated, passport.authenticate('local', {
 //     successRedirect: '/',
@@ -93,5 +80,5 @@ app.get('/api', (req,res) => {
 // }
 
 app.listen(PORT, () => {
-    console.log(`listening on port ${PORT}`)
+  console.log(`listening on port ${PORT}`)
 });
