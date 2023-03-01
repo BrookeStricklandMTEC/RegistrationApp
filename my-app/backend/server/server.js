@@ -1,3 +1,5 @@
+
+
 //help: npm run devStart not functional 
 // if(process.env.NODE_ENV !== 'production'){
 //     require('dotenv').config()
@@ -5,21 +7,32 @@
 
 const express = require('express');
 const app = express();
-const PORT = process.env.PORT || 3000; 
+const PORT = process.env.PORT || 4000;
 const db = require('.././db/index')
-
-const { Pool } = require('../db/index.js');  
 const bcrypt = require('bcrypt');
 const passport = require('passport');
 const flash = require('express-flash');
 const session = require('express-session');
 const methodOverride = require('method-override');
+const cors = require('cors')
+app.use(express.json())
 
+app.use(express.urlencoded({ extended: false }))
+const reactClientURL = 'http://localhost:3000' // react client
 
-app.use(express.urlencoded({extended:false}))
+app.use(cors({
+  origin: reactClientURL, // <-- location of the react app were connecting to
+  credentials: true,
+})
+)
 
 app.get('/api', db.getUsers)
 
+app.post("/addUser", (req, res) => {
+  console.log("post add User: ", ` ${req.body.username} `);
+  db.addUser(req.body.username, req.body.firstname, req.body.lastname, req.body.email, req.body.password)
+  res.json({ message: "Success" })
+})
 
 
 // const users = [];

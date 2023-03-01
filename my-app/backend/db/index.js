@@ -22,9 +22,32 @@ exports.getUsers = (req, res) => {
 
 exports.authUserByName = async (username) => {
     const results = await 
-    pool.query('SELECT * from users', [username]) 
+    pool.query('SELECT * from users', [username])   
     return json(results.rows[0]);
 }
+
+
+exports.addUser = (username, firstname, lastname, email, password) => {
+    const values = [username, firstname, lastname, email, password]
+    const query = "insert into users (username, email, hash ,firstName, lastName) VALUES ($1, $4, $5, $2, $3 )"
+    pool.query(query, values, (err, res) => {
+        console.log(err ? err.stack : res.rows)
+    })
+}
+
+// exports.addUser = (username, firstname, lastname, email, password) => {
+//     pool.query("insert into users (username, email, hash ,firstName, lastName,) VALUES ("+ username+","+email+" , "+password+", "+firstname+", "+lastname+" )")  
+    
+// }
+
+// const values = [username, firstname,lastname,email,password]
+//     const query = "insert into users (username, email, hash ,firstName, lastName,) VALUES ($1, $4, $5, $2, $3 )"
+
+//     client.query(query, values, (err, res) => {
+//         console.log(err ? err.stack : res.rows)
+
+//     })
+// }
 
 // 
 

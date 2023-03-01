@@ -50,7 +50,7 @@ return (
   <Router> 
     <Routes>
       <Route path='/' element={<div className='whiteScreen'> <LoginSign> </LoginSign>  </div>} > </Route>
-      <Route path='/Login' element={ <div className='whiteScreen'> <LoginScreen> </LoginScreen> </div>} > </Route>
+      <Route path='/LoginScreen' element={ <div className='whiteScreen'> <LoginScreen> </LoginScreen> </div>} > </Route>
       <Route path='/Register' element={ <div className='whiteScreen1'> <Register> </Register> </div>} > </Route>
       {/* Add future paths down here */}
     </Routes>
