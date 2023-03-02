@@ -1,7 +1,5 @@
 import './calendar.css';
-import React, {useState} from 'react';
-import logo from "./IMG/Logo.jpg"
-import userLogo from "./IMG/userLogo.png"
+import React, { useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
     faGreaterThan,
@@ -10,26 +8,44 @@ import {
 import { DAYS, range, MONTHS, getDaysInMonth, getSortDays, areDatesTheSame, getDateObj } from './cont';
 
 
-function Calendar({startingDate}){
+function Calendar({ startingDate }) {
     const [currentMonth, setCurrentmonth] = useState(startingDate.getMonth())
     const [currentYear, setCurrentyear] = useState(startingDate.getFullYear())
     const daysInMonth = getDaysInMonth(currentMonth, currentYear)
-    return (    
+
+
+    const nextMonth = () => {
+        if (currentMonth < 11) {
+            setCurrentmonth((prev) => prev + 1)
+        } else {
+            setCurrentmonth(0)
+            setCurrentyear((prev) => prev + 1)
+        }
+    }
+    const prevMonth = () => {
+        if (currentMonth > 0) {
+            setCurrentmonth((prev) => prev - 1)
+        } else {
+            setCurrentmonth(11)
+            setCurrentyear((prev) => prev - 1)
+        }
+    }
+    return (
         <>
             <div className='container'>
                 <div className='calendarHead'>
-                    <FontAwesomeIcon icon={faLessThan} className="icon" />
+                    <FontAwesomeIcon onClick={prevMonth} icon={faLessThan} className="icon" />
                     <p>{MONTHS[currentMonth]} {currentYear}</p>
-                    <FontAwesomeIcon icon={faGreaterThan} className="icon" />
+                    <FontAwesomeIcon onClick={nextMonth} icon={faGreaterThan} className="icon" />
                 </div>
                 <div className='sevenColGrid'>
                     {getSortDays(currentMonth, currentYear).map((day) => (
-                        <div className='headDay'>{day}</div>
+                        <div id={day + "day"} className='headDay'>{day}</div>
                     ))}
                 </div>
 
-                <div className='calenderBody' fourCol ={daysInMonth === 28 }>
-                    {range(daysInMonth).map((day) => <span actived={areDatesTheSame(new Date(), getDateObj(day, currentMonth, currentYear))} className='styledDay'>{day}</span>)}
+                <div className='calenderBody' >
+                    {range(daysInMonth).map((day) => <span className={'styledDay ' +(day === new Date().getDay()-2 && currentMonth === new Date().getMonth() && currentYear === new Date().getFullYear() ? "today":"")}   id={day}  >{day}</span>)}
                 </div>
             </div>
         </>

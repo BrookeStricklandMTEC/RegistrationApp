@@ -1,6 +1,6 @@
-import styled from "styled-components"
+
 export const DAYS = ["Sun", "Mon", "Tue", "Wed", "Thur", "Fri", "Sat"]
-export const MONTHS = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Oct", "Nov", "Dec"]
+export const MONTHS = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug","Sep", "Oct", "Nov", "Dec"]
 export const range = (end) => {
     const { result } = Array.from({ length: end }).reduce(({ result, current }) => ({
         result: [...result, current],
@@ -32,11 +32,3 @@ export const areDatesTheSame = (first, second) => {
 
 }
 
-export const styledDay = styled.span`
-    border: 1px solid;
-    text-align: right;
-    padding:5px;
-    ${({active}) => active && `background-color:red`}
-
-`
-    
