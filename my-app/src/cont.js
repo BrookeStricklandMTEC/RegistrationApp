@@ -1,11 +1,42 @@
-export const DAYS = ["Sun","Mon","Tue","Thur","Fri","Sat"]
-
+import styled from "styled-components"
+export const DAYS = ["Sun", "Mon", "Tue", "Wed", "Thur", "Fri", "Sat"]
+export const MONTHS = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Oct", "Nov", "Dec"]
 export const range = (end) => {
-    const {result} = Array.from({length: end}).reduce(({result, current}) => ({
+    const { result } = Array.from({ length: end }).reduce(({ result, current }) => ({
         result: [...result, current],
-        current: current + 1 
+        current: current + 1
 
-    }), {reuslt: [], current:1})
+    }), { result: [], current: 1 })
 
     return result
 }
+
+export const getDaysInMonth = (month, year) => {
+    return new Date(year, month + 1, 0).getDate()
+}
+
+export const getSortDays = (month, year) => {
+    const dayIndex = new Date(year, month, 1).getDay()
+    return [...DAYS.slice(dayIndex), ...DAYS.slice(0, dayIndex)]
+
+}
+
+export const getDateObj = (day, month, year) => {
+    return new Date(year, month, day)
+}
+
+export const areDatesTheSame = (first, second) => {
+    return first.getFullYear() === second.getFullYear() &&
+        first.getMonth() === second.getMonth() &&
+        first.getDate() === second.getDate()
+
+}
+
+export const styledDay = styled.span`
+    border: 1px solid;
+    text-align: right;
+    padding:5px;
+    ${({active}) => active && `background-color:red`}
+
+`
+    

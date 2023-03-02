@@ -65,7 +65,7 @@ function Dashboard() {
 
         
             <div id="main">
-                <Calendar />
+                <Calendar startingDate = {new Date}/>
                 {/* This Need % different Screen Types Dashboard Grades Calendar Inbox And Search Methods */}
             </div>
         </>
