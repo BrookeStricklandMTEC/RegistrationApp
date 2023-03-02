@@ -10,7 +10,7 @@ function Register() {
       <> 
         <div className='whiteScreen1'> 
             <div className="inside">
-                <p className="welcomeText">Create a Account, To Get Started</p>
+                <p className="welcomeText"> Create an Account, To Get Started! </p>
                 <div className='inputs'>
                     <input placeholder="Username" className='input' required></input>
                     <input placeholder="First Name" className='input padtop' required></input>
@@ -19,7 +19,8 @@ function Register() {
                     <input type="password" placeholder="Password" className='input padtop' required></input>
                 </div>
   
-                <Link className='button1 padtop2' to={'/LoginScreen'}> Sign Up </Link>
+                <Link className='button1 padtop2' to={'/dashboard'}> Sign Up </Link>
+                <Link className='button1 padtop2' to={'/LoginScreen'}> Already Have an Account? </Link>
             </div>
         </div>
       </>
