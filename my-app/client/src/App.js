@@ -12,47 +12,13 @@ import Register from './Register.js';
 
 function App() {
 
-  const [registerUsername, setRegisterUsername] = useState("");
-  const [registerPassword, setRegisterPassword] = useState("");
-  const [loginUsername, setLoginUsername] = useState("");
-  const [loginPassword, setLoginPassword] = useState("");
-  const [data, setData] = useState(null);
-  const [message, setMessage] = useState(null);
-  const [userList, setUserList] = useState(null);
-
-  const register = () => {
-
-  }
-
-  const login = () => {
-
-  }
-
-  const getLoginUser = () => {
-
-  }
-
-  const getAllUsers = () => {
-
-  }
-
-  const logout = () => {
-
-  }
-
-  const dashboard = () => {
-
-  }
-
-
-
 return (
   <Router> 
     <Routes>
       <Route path='/' element={<div className='whiteScreen'> <LoginSign> </LoginSign>  </div>} > </Route>
       <Route path='/LoginScreen' element={ <div className='whiteScreen'> <LoginScreen> </LoginScreen> </div>} > </Route>
       <Route path='/Register' element={ <div className='whiteScreen1'> <Register> </Register> </div>} > </Route>
-      {/* Add future paths down here */}
+      <Route path='/dashboard' element={<div> Hello World </div>}> </Route>
     </Routes>
  </Router>
   );

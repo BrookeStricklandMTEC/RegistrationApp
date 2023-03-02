@@ -9,7 +9,7 @@ import Register from './Register'
 function LoginSign() {
   return (
         <div className='whiteScreen'>
-            <div class="inside">
+            <div className="inside">
              <img src={logo} alt="Logo" className='logo' />
                 <div className='buttons'>
                   {/* these will be links, <Link id="start" className="button" to={'/category'} > Start Game </Link> */}
