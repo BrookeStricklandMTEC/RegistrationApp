@@ -14,7 +14,7 @@ import {
 import logo from "./IMG/Logo.jpg"
 import userLogo from "./IMG/userLogo.png"
 import Calendar from './calendar';
-
+import Inbox from './inbox';
 var open = false
 
 function Dashboard() {
@@ -65,7 +65,8 @@ function Dashboard() {
 
         
             <div id="main">
-                <Calendar startingDate = {new Date}/>
+                <Inbox />
+                {/* <Calendar startingDate = {new Date}/> */}
                 {/* This Need % different Screen Types Dashboard Grades Calendar Inbox And Search Methods */}
             </div>
         </>
