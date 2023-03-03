@@ -3,10 +3,8 @@ import React, {useState} from 'react';
 import logo from "./IMG/Logo.jpg"
 import { Link } from 'react-router-dom';
 import LoginScreen from './LoginScreen'
+
 // import  AddUser  from '../../backend/db/addUser';
-
-
-
 
 function Register() {
   const [username, setUsername]= useState()

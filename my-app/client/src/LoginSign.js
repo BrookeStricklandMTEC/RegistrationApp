@@ -3,8 +3,8 @@ import React, {useState} from 'react';
 import logo from "./IMG/Logo.jpg"
 import {BrowserRouter as Router, Link, Route, Routes} from 'react-router-dom'; 
 
-import LoginScreen from './LoginScreen'
-import Register from './Register'
+import LoginScreen from './LoginScreen';
+import Register from './Register';
 
 function LoginSign() {
   return (

@@ -1,7 +1,6 @@
 body{
-<<<<<<< HEAD:my-app/client/src/login.css
-    background-color: #7661fA;
-  }
+  background-color: #7661fA;
+}
   
   .whiteScreen{
     background-color:white;
@@ -140,9 +139,7 @@ body{
   .padtop2{  
     margin-top:20px;
   }
-=======
-  background-color: #7661fA;
-}
+  /* background-color: #7661fA; */
 
 .whiteScreen{
   background-color:white;
@@ -282,5 +279,3 @@ body{
   margin-top:20px;
 }
 
-
->>>>>>> bubba:my-app/src/login.css

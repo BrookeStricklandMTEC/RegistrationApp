@@ -12,40 +12,6 @@ import Register from './Register.js';
 
 function App() {
 
-  const [registerUsername, setRegisterUsername] = useState("");
-  const [registerPassword, setRegisterPassword] = useState("");
-  const [loginUsername, setLoginUsername] = useState("");
-  const [loginPassword, setLoginPassword] = useState("");
-  const [data, setData] = useState(null);
-  const [message, setMessage] = useState(null);
-  const [userList, setUserList] = useState(null);
-
-  const register = () => {
-
-  }
-
-  const login = () => {
-
-  }
-
-  const getLoginUser = () => {
-
-  }
-
-  const getAllUsers = () => {
-
-  }
-
-  const logout = () => {
-
-  }
-
-  const dashboard = () => {
-
-  }
-
-
-
 return (
   <Router> 
     <Routes>
