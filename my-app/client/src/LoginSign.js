@@ -6,6 +6,12 @@ import {BrowserRouter as Router, Link, Route, Routes} from 'react-router-dom';
 import LoginScreen from './LoginScreen'
 import Register from './Register'
 
+function gotoReg(){
+  window.location.href = "/Register"
+}
+function gotoLog(){
+  window.location.href = "/Loginscreen"
+}
 function LoginSign() {
   return (
         <div className='whiteScreen'>
@@ -13,8 +19,8 @@ function LoginSign() {
              <img src={logo} alt="Logo" className='logo' />
                 <div className='buttons'>
                   {/* these will be links, <Link id="start" className="button" to={'/category'} > Start Game </Link> */}
-                   <Link className="button1" to={'/LoginScreen'}> Login </Link>
-                    <Link className='button2' to={'/Register'}> Sign Up </Link>
+                   <button className="button1" onClick={gotoLog}> Login </button>
+                    <button className='button2' onClick={gotoReg}> Sign Up </button>
                 </div>
             </div>
         </div>

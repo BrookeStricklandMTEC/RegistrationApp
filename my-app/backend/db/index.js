@@ -28,12 +28,22 @@ exports.authUserByName = async (username) => {
 
 
 exports.addUser = (username, firstname, lastname, email, password) => {
+    
     const values = [username, firstname, lastname, email, password]
     const query = "insert into users (username, email, hash ,firstName, lastName) VALUES ($1, $4, $5, $2, $3 )"
     pool.query(query, values, (err, res) => {
         console.log(err ? err.stack : res.rows)
     })
 }
+
+exports.uniqueUsername = (username) => {
+    const value = [username]
+    const query = "Select * from users WHERE username = '$1'"
+    pool.query(query,values,(err,res) => {
+        console.log("hit")
+    })
+}
+
 
 // exports.addUser = (username, firstname, lastname, email, password) => {
 //     pool.query("insert into users (username, email, hash ,firstName, lastName,) VALUES ("+ username+","+email+" , "+password+", "+firstname+", "+lastname+" )")  
