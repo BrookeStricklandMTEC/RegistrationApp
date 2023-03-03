@@ -1,24 +1,29 @@
 const LocalStrategy = require("passport-local").Strategy
-const express = require('express')
 const { pool } = require('../db/index')
 const bcrypt = require('bcrypt')
 const passport = require('passport')
 
 function initialize(passport) {
-  const authenticateUser = (email, password, done) => {
+  const authenticateUser = (username, password, done) => {
+    console.log(username);
     pool.query(
-      `SELECT * FROM users where email = $1`,
-      [email],
+      `SELECT * FROM users where username = $1`,
+      [username],
       (err, results) => {
         if (err) {
           throw err;
         }
 
         console.log(results.rows);
-
+        
         if (results.rows.length > 0) {
           const user = results.rows[0]
-          bcrypt.compare(password, user.password, (err, isMatch) => {
+          console.log(user);
+          console.log(user.hash, password)
+          user.hash = bcrypt.hashSync(password, 10)
+          console.log(user.hash, password)
+
+          bcrypt.compare(password, user.hash, (err, isMatch) => {
             if (err) {
               throw err
             }
@@ -37,7 +42,7 @@ function initialize(passport) {
 
   passport.use(
     new LocalStrategy({
-      usernameField: "email",
+      usernameField: "username",
       passwordField: "password"
     },
       authenticateUser
@@ -46,11 +51,11 @@ function initialize(passport) {
 
 }
 
-passport.serializeUser((user, done) => done(null, user.id));
+passport.serializeUser((user, done) => done(null, user.username));
 
 passport.deserializeUser((id, done) => {
   pool.query(
-    `SELECT * FROM users WHERE id=$1`, [id], (err, results) => {
+    `SELECT * FROM users WHERE username=$1`, [id], (err, results) => {
       if (err) {
         throw err;
       }

@@ -12,6 +12,8 @@ const methodOverride = require('method-override');
 
 app.use(express.urlencoded({extended:false}))
 
+app.use(express.json());
+
 app.use(
   session({
     secret: "secret",
@@ -26,21 +28,17 @@ app.use(passport.session());
 
 initializePassport(passport);
 
-
-// app.post('/login', passport.authenticate('local', {
-
-//   successRedirect: '/dashboard',
-//   failureRedirect: '/login',
-//   failureFlash: true, // do this but make it so it works for react
-
-// }));
-
+app.post('/login', 
+passport.authenticate('local', {}), (req,res) => {
+  console.log(req.body.username)
+  console.log(req.body.password);
+  res.json({ message: "Success" })
+}) 
 
 passport.authenticate('/login', (err, user, info) => {
   console.log('hit');
   res.json({ message: "Success" })
 })
-
 
 
 function checkAuthenticated(req, res, next) {

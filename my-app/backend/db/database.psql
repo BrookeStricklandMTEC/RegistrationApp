@@ -1,0 +1,18 @@
+-- USERS TABLE
+
+-- CREATE TABLE users(username VARCHAR(30) unique not null,
+-- email VARCHAR(50), hash varchar(20) unique not null,
+-- isAdmin BOOLEAN,
+-- firstName char(12), lastName char(20),
+-- cellphone varchar(12), address text,
+-- createDate timestamp
+-- );
+
+-- insert into users (username, email, hash, isAdmin, firstName, lastName, cellphone, address, createDate)
+-- VALUES ('brookestrickland4', 'brooke.strickland@stu.mtech.edu', 'supersecretpassword', true, 'Brooke', 'Strickland', '385-320-0980', '807 W Old Barn Drive West Valley, UT','');
+
+
+-- Select * from users;
+
+-- COURSES TABLE
+

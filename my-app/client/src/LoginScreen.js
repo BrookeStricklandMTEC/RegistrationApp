@@ -1,9 +1,13 @@
 import React, { useState } from 'react';
 import logo from "./IMG/Logo.jpg"
+
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 import { Link } from 'react-router-dom';
 import Axios from 'axios';
-
 import LoginScreen from './LoginScreen';
+
 
 function Login() {
 
@@ -22,27 +26,12 @@ function Login() {
             })
         }).then((res) => res.json())
             .then(data => {
-                console.log(data)
+                console.log(data);
+                window.location.href = '/dashboard';
         }) .catch((error) => {
             console.log(error)
           })
     }
-
-    // admin to get all logged in users function 
-
-    // const getLoginUser = () => {
-    //     Axios({
-    //       method: "GET",
-    //       withCredentials: true,
-    //       url: "http://localhost:3000/api/getLoginUser",
-    //     }).then((res) => {
-    //       if(res.data.username)
-    //         setData(res.data)
-    //       else
-    //         setData(null); 
-    //       console.log(res.data);
-    //     });
-    // };
 
     // logout function 
 
@@ -50,7 +39,7 @@ function Login() {
     //     Axios({
     //       method: "GET",
     //       withCredentials: true,
-    //       url: "http://localhost:4002/logout",
+    //       url: "http://localhost:3000/logout",
     //     }).then((res) => {
     //       console.log(res.data);
     //       setMessage(res.data);
@@ -70,10 +59,10 @@ function Login() {
 
                     <div className='inputs'>
                         <input placeholder="Username" className='input' required onChange={(e) => setUsername(e.target.value)}></input>
-                        <input type="password" placeholder="Password" className='input padtop' required ></input>
+                        <input type="password" placeholder="Password" className='input padtop' required onChange={(e) => setPassword (e.target.value)}></input>
                     </div>
 
-                    <Link className='button1 padtop1' to={'/dashboard'} > Login </Link>
+                    <Link className='button1 padtop1' onClick={Submit}> Login </Link>
                     <Link className='button1 padtop1' to={'/Register'}> Don't Have an Account? </Link>
                     {/* ^^ add node function that reads users priviliges based off login info */}
                     <Link className='forgotPass'> Forgot Password </Link>
@@ -83,5 +72,7 @@ function Login() {
         </>
     );
 }
+
+<ToastContainer />
 
 export default Login
