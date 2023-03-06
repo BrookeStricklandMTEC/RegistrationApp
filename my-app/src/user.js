@@ -13,26 +13,55 @@ import {
 } from '@fortawesome/free-solid-svg-icons';
 import logo from "./IMG/Logo.jpg"
 import userLogo from "./IMG/userLogo.png"
-import Calendar from './calendar';
-import Inbox from './inbox';
+import Calendar from './DCGI/calendar';
+import Inbox from './DCGI/inbox';
+import MainScreen from './DCGI/dashboard';
 var open = false
 
 function Dashboard() {
+    const [dashboardScreen, setDashboardScreen] = useState("1")
+    function updateDashboardScreen({currentTarget}){
+        setDashboardScreen(currentTarget.id)
+        console.log(currentTarget.id)
+        running()
+    }
+    
+    function running(){
+        if(dashboardScreen === "1"){
+            return(
+               <MainScreen />
+            )
+        } else if(dashboardScreen === "2"){
+            return(
+                <Calendar startingDate = {new Date}/>
+            )
+        }else if(dashboardScreen === "3"){
+            return(
+                <></>
+                //nothing so far
+            )
+        }else if(dashboardScreen === "4"){
+            return(
+                <Inbox />
+            )
+        }
+    }
+    // dashboardScreen.onchange = running()
     return(
         <>
             <div className='sidebar' id="mysidebar">
                 <div className="top">
-                    <div className='a'>
-                        <FontAwesomeIcon icon={faHouse} className="icon"/> <a className="text"> Dashboard</a>
+                    <div className='a' id="1" onClick={updateDashboardScreen} >
+                        <FontAwesomeIcon icon={faHouse} className="icon"  /> <a className="text" > Dashboard</a>
                     </div>
-                    <div className='a'>
-                        <FontAwesomeIcon icon={faCalendar} className="icon"/> <a className="text"> Calendar</a>
+                    <div className='a' id="2" onClick={updateDashboardScreen}>
+                        <FontAwesomeIcon icon={faCalendar} className="icon" /> <a className="text" > Calendar</a>
                     </div>
-                    <div className='a'>
-                        <FontAwesomeIcon icon={faA} className="icon"/><FontAwesomeIcon icon={faPlus} className="icon"/> <a className="text"> Grades</a>
+                    <div className='a' id="3" onClick={updateDashboardScreen}>
+                        <FontAwesomeIcon icon={faA} className="icon" /><FontAwesomeIcon icon={faPlus} className="icon" /> <a className="text" > Grades</a>
                     </div>
-                    <div className='a'>
-                        <FontAwesomeIcon icon={faEnvelope} className="icon"/> <a className="text"> Inbox</a>
+                    <div className='a' id="4" onClick={updateDashboardScreen}>
+                        <FontAwesomeIcon icon={faEnvelope} className="icon" /> <a className="text" > Inbox</a>
                     </div>
 
                 </div>
@@ -65,9 +94,7 @@ function Dashboard() {
 
         
             <div id="main">
-                <Inbox />
-                {/* <Calendar startingDate = {new Date}/> */}
-                {/* This Need % different Screen Types Dashboard Grades Calendar Inbox And Search Methods */}
+                {running()}
             </div>
         </>
     )

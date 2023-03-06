@@ -44,9 +44,11 @@ body{
     display: flex;
     justify-content: space-between;
     align-items: center;
-    position:relative;
+    position:fixed;
+    top:0;
     margin:0px;
     z-index: 1;
+    
 }
 
 .right{
@@ -74,7 +76,7 @@ body{
     height: 100%;
     width: 205px;
     padding-top:130px;
-    position: absolute;
+    position: fixed;
     z-index: 1;
     top: 0;
     left: 0;
@@ -164,6 +166,8 @@ body{
 /* --------------Main------------------ */
 
 #main {
+    margin-top:155px;;
     margin-left:220px;
     transition:1s;
+    margin-bottom:30px;
 }

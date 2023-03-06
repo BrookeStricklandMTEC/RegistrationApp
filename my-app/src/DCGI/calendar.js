@@ -5,7 +5,7 @@ import {
     faGreaterThan,
     faLessThan
 } from '@fortawesome/free-solid-svg-icons';
-import { DAYS, range, MONTHS, getDaysInMonth, getSortDays, areDatesTheSame, getDateObj } from './cont';
+import { DAYS, range, MONTHS, getDaysInMonth, getSortDays, areDatesTheSame, getDateObj } from '../cont';
 
 
 function Calendar({ startingDate }) {
