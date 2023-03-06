@@ -35,10 +35,11 @@ passport.authenticate('local', {}), (req,res) => {
   res.json({ message: "Success" })
 }) 
 
-passport.authenticate('/login', (err, user, info) => {
-  console.log('hit');
-  res.json({ message: "Success" })
-})
+// app.post('/admindashboard','/dashboard',
+// passport.authenticate('local', {}), (req,res) => {
+//   console.log(req.body.isadmin)
+//   res.json({ message: "Success" })
+// }) 
 
 
 function checkAuthenticated(req, res, next) {

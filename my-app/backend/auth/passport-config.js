@@ -15,19 +15,25 @@ function initialize(passport) {
         }
 
         console.log(results.rows);
-        
+
         if (results.rows.length > 0) {
           const user = results.rows[0]
+      
           console.log(user);
           console.log(user.hash, password)
           user.hash = bcrypt.hashSync(password, 10)
-          console.log(user.hash, password)
 
           bcrypt.compare(password, user.hash, (err, isMatch) => {
             if (err) {
               throw err
             }
-            if (isMatch) {
+            if (isMatch ) {
+              if (user.isadmin = true){
+                console.log(user.isadmin)
+              } else {
+                user.isadmin = false; 
+                console.log(user.isadmin)
+              }
               return done(null, user);
             } else {
               return done(null, false, { message: "Password is incorrect" })
@@ -38,17 +44,39 @@ function initialize(passport) {
         }
       }
     )
-  }
+}
 
-  passport.use(
+
+//  function admin () {
+//     const adminUser = (admin = true) => {
+//       console.log(admin)
+//       pool.query(
+//         `SELECT isadmin from users WHERE admin = $1`,
+//         [adminUser],
+//         (err, results) => {
+//           if (err) {
+//             throw err;
+//           }
+//           if (isTrue){
+//             return done (null, admin)
+//           } else {
+//             return done (null, false)
+//           }
+//       }
+//     )
+//   }
+// }
+
+
+
+passport.use(
     new LocalStrategy({
       usernameField: "username",
-      passwordField: "password"
+      passwordField: "password",
     },
       authenticateUser
     )
   )
-
 }
 
 passport.serializeUser((user, done) => done(null, user.username));

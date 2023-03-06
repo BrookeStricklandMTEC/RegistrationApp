@@ -13,7 +13,7 @@ function Login() {
 
     const [username, setUsername] = useState();
     const [password, setPassword] = useState();
-
+    
     function Submit() {
         fetch("/login", {
             method: "POST",
@@ -28,6 +28,7 @@ function Login() {
             .then(data => {
                 console.log(data);
                 window.location.href = '/dashboard';
+                
         }) .catch((error) => {
             console.log(error)
           })
