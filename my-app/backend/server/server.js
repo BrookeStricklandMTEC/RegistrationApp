@@ -1,14 +1,10 @@
 const express = require('express');
 const app = express();
 const PORT = process.env.PORT || 4000; 
-const db = require('.././db/index')
 
-const bcrypt = require('bcrypt');
 const passport = require('passport');
-const flash = require('express-flash');
 const initializePassport = require('../auth/passport-config');
 const session = require('express-session');
-const methodOverride = require('method-override');
 
 app.use(express.urlencoded({extended:false}))
 
@@ -35,6 +31,7 @@ passport.authenticate('local', {}), (req,res) => {
   res.json({ message: "Success" })
 }) 
 
+
 // app.post('/admindashboard','/dashboard',
 // passport.authenticate('local', {}), (req,res) => {
 //   console.log(req.body.isadmin)
@@ -48,6 +45,7 @@ function checkAuthenticated(req, res, next) {
   }
   next();
 }
+
 
 function checkNotAuthenticated(req, res, next) {
   if (req.isAuthenticated()) {

@@ -28,13 +28,14 @@ function Login() {
             .then(data => {
                 console.log(data);
                 window.location.href = '/dashboard';
+                // new window redirect? 
                 
         }) .catch((error) => {
             console.log(error)
           })
     }
 
-    // logout function 
+    // logout function for dashboard 
 
     //   const logout = () => {
     //     Axios({
