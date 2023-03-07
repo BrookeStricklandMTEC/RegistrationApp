@@ -31,6 +31,7 @@ passport.authenticate('local', {}), (req,res) => {
   res.json({ message: "Success" })
 }) 
 
+// possible admin function 
 
 // app.post('/admindashboard','/dashboard',
 // passport.authenticate('local', {}), (req,res) => {

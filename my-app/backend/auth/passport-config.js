@@ -41,8 +41,8 @@ function initialize(passport) {
         } else {
           return done(null, false, { message: "Email is not registered" });
         }
-      }
-    )
+    }
+  )
 }
 
 
@@ -50,6 +50,7 @@ passport.use(
     new LocalStrategy({
       usernameField: "username",
       passwordField: "password",
+      adminField: "isadmin",
     },
       authenticateUser
     )
