@@ -26,9 +26,10 @@ initializePassport(passport);
 
 app.post('/login', 
 passport.authenticate('local', {}), (req,res) => {
-  console.log(req.body.username)
+  console.log(req.body.username);
   console.log(req.body.password);
-  res.json({ message: "Success" })
+  console.log(req.user)
+  res.json({ message: "Success", "isadmin": req.user.isadmin })
 }) 
 
 // possible admin function 
@@ -36,7 +37,7 @@ passport.authenticate('local', {}), (req,res) => {
 // app.post('/admindashboard','/dashboard',
 // passport.authenticate('local', {}), (req,res) => {
 //   console.log(req.body.isadmin)
-//   res.json({ message: "Success" })
+//   res.json({ message: "Successfully logged in admin" })
 // }) 
 
 
@@ -46,7 +47,6 @@ function checkAuthenticated(req, res, next) {
   }
   next();
 }
-
 
 function checkNotAuthenticated(req, res, next) {
   if (req.isAuthenticated()) {
@@ -58,11 +58,11 @@ function checkNotAuthenticated(req, res, next) {
 
 // logout function
 
-// app.get('/api/logout', (req, res) => {
-//   res.logOut();
-//   req.flash('success_msg', "You have logged out");
-//   res.redirect('/api/login')
-// })
+app.get('/api/logout', (req, res) => {
+  res.logOut();
+  req.flash('success_msg', "You have logged out");
+  res.redirect('/api/login')
+})
 
 app.listen(PORT, () => {
   console.log(`listening on port ${PORT}`)

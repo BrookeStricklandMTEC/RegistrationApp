@@ -26,10 +26,12 @@ function Login() {
             })
         }).then((res) => res.json())
             .then(data => {
-                console.log(data);
-                window.location.href = '/dashboard';
-                // new window redirect? 
-                
+                console.log(data, data.message, data.isadmin);
+                if(data.isadmin === true){
+                    window.location.href = '/admindashboard';
+                } else {
+                    window.location.href = '/dashboard'; 
+                }
         }) .catch((error) => {
             console.log(error)
           })

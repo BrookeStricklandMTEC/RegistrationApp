@@ -29,9 +29,11 @@ function initialize(passport) {
             if (isMatch ) {
               if (user.isadmin === true){
                 console.log(user.isadmin)
+                // return res.redirect('/admindashboard')
               } else {
                 user.isadmin = false; 
                 console.log(user.isadmin)
+                // return done(null, false)
               }
               return done(null, user);
             } else {
