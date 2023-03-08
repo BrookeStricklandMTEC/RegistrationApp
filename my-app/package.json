@@ -3,34 +3,15 @@
   "version": "1.0.0",
   "description": "��#\u0000 \u0000R\u0000e\u0000g\u0000i\u0000s\u0000t\u0000r\u0000a\u0000t\u0000i\u0000o\u0000n\u0000A\u0000p\u0000p\u0000\r\u0000 \u0000\r\u0000 \u0000A\u0000b\u0000o\u0000u\u0000t\u0000\r\u0000 \u0000\r\u0000 \u0000*\u0000\r\u0000 \u0000\r\u0000 \u0000\r\u0000 \u0000P\u0000r\u0000e\u0000s\u0000e\u0000n\u0000t\u0000a\u0000t\u0000i\u0000o\u0000n\u0000 \u0000N\u0000o\u0000t\u0000e\u0000s\u0000\r\u0000 \u0000\r\u0000 \u0000*\u0000\r\u0000 \u0000\r\u0000 \u0000\r\u0000 \u0000",
   "main": "index.js",
-<<<<<<< HEAD
-=======
-  "name": "my-app",
-  "version": "0.1.0",
-  "private": true,
-  "dependencies": {
-    "@fortawesome/fontawesome-svg-core": "^6.3.0",
-    "@fortawesome/free-regular-svg-icons": "^6.3.0",
-    "@fortawesome/free-solid-svg-icons": "^6.3.0",
-    "@fortawesome/react-fontawesome": "^0.2.0",
-    "@testing-library/jest-dom": "^5.16.5",
-    "@testing-library/react": "^13.4.0",
-    "@testing-library/user-event": "^13.5.0",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
-    "react-icons": "^4.7.1",
-    "react-scripts": "^5.0.1",
-    "styled-components": "^5.3.8",
-    "web-vitals": "^2.1.4"
-  },
->>>>>>> 95533d18d286f0cc557efeaa3dd1614055f7bd2a
   "scripts": {
-    "build": "cd backend && npm i && cd ../client && npm i && npm run build"
+    "build": "cd backend && npm i && cd ../client && npm i && npm run build",
+    "start": "node backend/server/server.js"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "cors": "^2.8.5",
     "pg": "^8.9.0"
   }
 }

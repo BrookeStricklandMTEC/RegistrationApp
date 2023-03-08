@@ -1,19 +1,19 @@
-<<<<<<< HEAD
 import React, { useState } from 'react';
-=======
-import React, {useState, useRef, useEffect} from 'react';
->>>>>>> 95533d18d286f0cc557efeaa3dd1614055f7bd2a
 import logo from "./IMG/Logo.jpg"
+
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 import { Link } from 'react-router-dom';
-import { ToastContainer, toast } from 'react-toastify';    
 import Axios from 'axios';
+import LoginScreen from './LoginScreen';
+
 
 function Login() {
-<<<<<<< HEAD
 
     const [username, setUsername] = useState();
     const [password, setPassword] = useState();
-
+    
     function Submit() {
         fetch("/login", {
             method: "POST",
@@ -26,40 +26,16 @@ function Login() {
             })
         }).then((res) => res.json())
             .then(data => {
-                console.log(data)
+                console.log(data, data.message, data.isadmin);
+                if(data.isadmin === true){
+                    window.location.href = '/admindashboard';
+                } else {
+                    window.location.href = '/dashboard'; 
+                }
         }) .catch((error) => {
             console.log(error)
-        })
+          })
     }
-
-    // admin to get all logged in users function 
-
-    // const getLoginUser = () => {
-    //     Axios({
-    //       method: "GET",
-    //       withCredentials: true,
-    //       url: "http://localhost:3000/api/getLoginUser",
-    //     }).then((res) => {
-    //       if(res.data.username)
-    //         setData(res.data)
-    //       else
-    //         setData(null); 
-    //       console.log(res.data);
-    //     });
-    // };
-
-    // logout function 
-
-    //   const logout = () => {
-    //     Axios({
-    //       method: "GET",
-    //       withCredentials: true,
-    //       url: "http://localhost:4002/logout",
-    //     }).then((res) => {
-    //       console.log(res.data);
-    //       setMessage(res.data);
-    //     });
-    //   }
 
     return (
         <>
@@ -74,39 +50,20 @@ function Login() {
 
                     <div className='inputs'>
                         <input placeholder="Username" className='input' required onChange={(e) => setUsername(e.target.value)}></input>
-                        <input type="password" placeholder="Password" className='input padtop' required ></input>
+                        <input type="password" placeholder="Password" className='input padtop' required onChange={(e) => setPassword (e.target.value)}></input>
                     </div>
 
-                    <Link className='button1 padtop1' to={'/dashboard'}> Login </Link>
+                    <Link className='button1 padtop1' onClick={Submit}> Login </Link>
                     <Link className='button1 padtop1' to={'/Register'}> Don't Have an Account? </Link>
                     {/* ^^ add node function that reads users priviliges based off login info */}
                     <Link className='forgotPass'> Forgot Password </Link>
                     {/* idk if we will be able to do this function in time for project submission, might have to implement afterwards */}
                 </div>
-=======
-   return (
-      <>
-        <div className='whiteScreen'> 
-            <div className="inside">
-                <p className="welcomeText">Welcome,{"\n"}Glad to See You</p>
-                
-                {/* <div > messages.success_msg </div> */}
-                {/* <div > messages.error </div> */}
-
-                <div className='inputs'>
-                    <input placeholder="Username" className='input' required></input>
-                    <input type="password" placeholder="Password" className='input padtop' required></input>
-                </div>
-
-                <Link className='button1 padtop1' to={'/dashboard'}> Login </Link> 
-                <Link className='button1 padtop1' to={'/Register'}> Don't Have an Account? </Link> 
-                {/* ^^ add node function that reads users priviliges based off login info */}
-                <Link className='forgotPass'> Forgot Password </Link>
-                {/* idk if we will be able to do this function in time for project submission, might have to implement afterwards */}
->>>>>>> 95533d18d286f0cc557efeaa3dd1614055f7bd2a
             </div>
         </>
     );
 }
 
-export default Login;
+<ToastContainer />
+
+export default Login

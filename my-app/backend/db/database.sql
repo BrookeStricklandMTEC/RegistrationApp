@@ -14,9 +14,5 @@
 
 -- Select * from users;
 
-<<<<<<< HEAD
--- COURSES TABLE
-=======
 -- COURSES TABLE
 
->>>>>>> 95533d18d286f0cc557efeaa3dd1614055f7bd2a

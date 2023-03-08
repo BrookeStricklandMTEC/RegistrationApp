@@ -3,15 +3,10 @@ import React, { useState } from 'react';
 import logo from "./IMG/Logo.jpg"
 import { Link } from 'react-router-dom';
 import LoginScreen from './LoginScreen'
-<<<<<<< HEAD
-
-// import  AddUser  from '../../backend/db/addUser';
-=======
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 
->>>>>>> 95533d18d286f0cc557efeaa3dd1614055f7bd2a
 
 function Register() {
   const [username, setUsername] = useState()

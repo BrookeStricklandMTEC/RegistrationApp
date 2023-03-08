@@ -1,41 +1,3 @@
-<<<<<<< HEAD
-// import './user.css';
-// import React from 'react';
-// import {useState, useEffect} from 'react';
-// import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-// import {
-//   faHouse,
-//   faArrowsLeftRight,
-//   faSearch,
-//   faCalendar,
-//   faA,
-//   faPlus,
-//   faEnvelope,
-// } from '@fortawesome/free-solid-svg-icons';
-// import logo from "./IMG/Logo.jpg"
-// import userLogo from "./IMG/userLogo.png"
-// import Calendar from './calendar';
-
-// var open = false
-
-// function Dashboard() {
-//     return(
-//         <>
-//             <div className='sidebar' id="mysidebar">
-//                 <div className="top">
-//                     <div className='a'>
-//                         <FontAwesomeIcon icon={faHouse} className="icon"/> <a className="text"> Dashboard</a>
-//                     </div>
-//                     <div className='a'>
-//                         <FontAwesomeIcon icon={faCalendar} className="icon"/> <a className="text"> Calendar</a>
-//                     </div>
-//                     <div className='a'>
-//                         <FontAwesomeIcon icon={faA} className="icon"/><FontAwesomeIcon icon={faPlus} className="icon"/> <a className="text"> Grades</a>
-//                     </div>
-//                     <div className='a'>
-//                         <FontAwesomeIcon icon={faEnvelope} className="icon"/> <a className="text"> Inbox</a>
-//                     </div>
-=======
 import './user.css';
 import React from 'react';
 import {useState, useEffect} from 'react';
@@ -101,7 +63,6 @@ function Dashboard() {
                     <div className='a' id="4" onClick={updateDashboardScreen}>
                         <FontAwesomeIcon icon={faEnvelope} className="icon" /> <a className="text" > Inbox</a>
                     </div>
->>>>>>> 95533d18d286f0cc557efeaa3dd1614055f7bd2a
 
 //                 </div>
 //                 <div className="bottom" id="bottom">
@@ -132,15 +93,6 @@ function Dashboard() {
 //             </div> 
 
         
-<<<<<<< HEAD
-//             <div id="main">
-//                 <Calendar startingDate = {new Date}/>
-//                 {/* This Need % different Screen Types Dashboard Grades Calendar Inbox And Search Methods */}
-//             </div>
-//         </>
-//     )
-// }
-=======
             <div id="main">
                 
                 {running()}
@@ -148,7 +100,6 @@ function Dashboard() {
         </>
     )
 }
->>>>>>> 95533d18d286f0cc557efeaa3dd1614055f7bd2a
 
 
 // function openClose() {
@@ -206,8 +157,4 @@ function Dashboard() {
 //     return new Promise(resolve => setTimeout(resolve, time));
 // }
 
-<<<<<<< HEAD
-// export default Dashboard;
-=======
 export default Dashboard; 
->>>>>>> 95533d18d286f0cc557efeaa3dd1614055f7bd2a
