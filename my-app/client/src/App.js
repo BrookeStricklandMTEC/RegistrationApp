@@ -7,7 +7,7 @@ import LoginSign from './LoginSign';
 import Login from './LoginScreen.js';
 import LoginScreen from './LoginScreen';
 import Register from './Register.js';
-
+import Dashboard from './user';
 
 function App() {
   const [loading, setLoading] = useState(false);

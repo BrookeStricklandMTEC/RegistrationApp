@@ -7,6 +7,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import { Link } from 'react-router-dom';
 import Axios from 'axios';
 import LoginScreen from './LoginScreen';
+import Dashboard from './user.js'
 
 
 function Login() {
@@ -26,6 +27,7 @@ function Login() {
             })
         }).then((res) => res.json())
             .then(data => {
+                // (data.message)
                 console.log(data, data.message, data.isadmin);
                 if(data.isadmin === true){
                     window.location.href = '/admindashboard';
