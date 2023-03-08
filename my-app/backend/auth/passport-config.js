@@ -19,22 +19,12 @@ function initialize(passport) {
         if (results.rows.length > 0) {
           const user = results.rows[0]
       
-          console.log(user);
           user.hash = bcrypt.hashSync(password, 10)
-          console.log(user.hash, password)
           bcrypt.compare(password, user.hash, (err, isMatch) => {
             if (err) {
               throw err
             }
             if (isMatch ) {
-              if (user.isadmin === true){
-                console.log(user.isadmin)
-                // return res.redirect('/admindashboard')
-              } else {
-                user.isadmin = false; 
-                console.log(user.isadmin)
-                // return done(null, false)
-              }
               return done(null, user);
             } else {
               return done(null, false, { message: "Password is incorrect" })

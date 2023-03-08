@@ -11,16 +11,9 @@ import Register from './Register.js';
 // to do
 
 // Create search feature for courses and users
-// Logout functionality 
-// create admin feature (two different dashboard, one for student, one for admin)
+// Logout functionality ~ done? 
 // student cannot register for course if full (max_capacity)
 
-
-// if (user.admin == true) {
-// once logged in they see admin dashboard
-//} else {
-// once logged in they see student dashboard
-//}
 
 
 function App() {
@@ -36,8 +29,10 @@ function App() {
  return (
   <Router> 
   {loading ? (
-    <div className='loaders-container'>
-      <div id='spinner'> </div>
+    <div className='image-parent'> 
+      <div className='loader-container'>
+        <div id='spinner'> </div>
+      </div>
     </div>
     ) : (
     <Routes>
