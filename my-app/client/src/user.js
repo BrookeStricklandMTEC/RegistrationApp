@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 // import './user.css';
 // import React from 'react';
 // import {useState, useEffect} from 'react';
@@ -34,6 +35,73 @@
 //                     <div className='a'>
 //                         <FontAwesomeIcon icon={faEnvelope} className="icon"/> <a className="text"> Inbox</a>
 //                     </div>
+=======
+import './user.css';
+import React from 'react';
+import {useState, useEffect} from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import {
+  faHouse,
+  faArrowsLeftRight,
+  faSearch,
+  faCalendar,
+  faA,
+  faPlus,
+  faEnvelope,
+} from '@fortawesome/free-solid-svg-icons';
+import logo from "./IMG/Logo.jpg"
+import userLogo from "./IMG/userLogo.png"
+import Calendar from './DCGI/calendar';
+import Inbox from './DCGI/inbox';
+import MainScreen from './DCGI/dashboard';
+var open = false
+
+function Dashboard() {
+    const [dashboardScreen, setDashboardScreen] = useState("1")
+    function updateDashboardScreen({currentTarget}){
+        setDashboardScreen(currentTarget.id)
+        console.log(currentTarget.id)
+        running()
+    }
+    
+    function running(){
+        if(dashboardScreen === "1"){
+            return(
+               <MainScreen />
+            )
+        } else if(dashboardScreen === "2"){
+            return(
+                <Calendar startingDate = {new Date}/>
+            )
+        }else if(dashboardScreen === "3"){
+            return(
+                <></>
+                //nothing so far
+            )
+        }else if(dashboardScreen === "4"){
+            return(
+                <Inbox />
+            )
+        }
+    }
+    // dashboardScreen.onchange = running()
+    return(
+        <>
+            <div className='sidebar' id="mysidebar">
+                <div className="top">
+                    <div className='a' id="1" onClick={updateDashboardScreen} >
+                        <FontAwesomeIcon icon={faHouse} className="icon"  /> <a className="text" > Dashboard</a>
+                    </div>
+                    <div className='a' id="2" onClick={updateDashboardScreen}>
+                        <FontAwesomeIcon icon={faCalendar} className="icon" /> <a className="text" > Calendar</a>
+                    </div>
+                    <div className='a' id="3" onClick={updateDashboardScreen}>
+                        <FontAwesomeIcon icon={faA} className="icon" /><FontAwesomeIcon icon={faPlus} className="icon" /> <a className="text" > Grades</a>
+                    </div>
+                    <div className='a' id="4" onClick={updateDashboardScreen}>
+                        <FontAwesomeIcon icon={faEnvelope} className="icon" /> <a className="text" > Inbox</a>
+                    </div>
+>>>>>>> 95533d18d286f0cc557efeaa3dd1614055f7bd2a
 
 //                 </div>
 //                 <div className="bottom" id="bottom">
@@ -64,6 +132,7 @@
 //             </div> 
 
         
+<<<<<<< HEAD
 //             <div id="main">
 //                 <Calendar startingDate = {new Date}/>
 //                 {/* This Need % different Screen Types Dashboard Grades Calendar Inbox And Search Methods */}
@@ -71,6 +140,15 @@
 //         </>
 //     )
 // }
+=======
+            <div id="main">
+                
+                {running()}
+            </div>
+        </>
+    )
+}
+>>>>>>> 95533d18d286f0cc557efeaa3dd1614055f7bd2a
 
 
 // function openClose() {
@@ -128,4 +206,8 @@
 //     return new Promise(resolve => setTimeout(resolve, time));
 // }
 
+<<<<<<< HEAD
 // export default Dashboard;
+=======
+export default Dashboard; 
+>>>>>>> 95533d18d286f0cc557efeaa3dd1614055f7bd2a

@@ -1,6 +1,11 @@
 body{
+<<<<<<< HEAD
   background-color: #7661fA;
 }
+=======
+    background-color: #7661fA;
+  }
+>>>>>>> 95533d18d286f0cc557efeaa3dd1614055f7bd2a
   
   .whiteScreen{
     background-color:white;
@@ -139,7 +144,11 @@ body{
   .padtop2{  
     margin-top:20px;
   }
+<<<<<<< HEAD
   /* background-color: #7661fA; */
+=======
+  
+>>>>>>> 95533d18d286f0cc557efeaa3dd1614055f7bd2a
 
 .whiteScreen{
   background-color:white;
@@ -279,3 +288,7 @@ body{
   margin-top:20px;
 }
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> 95533d18d286f0cc557efeaa3dd1614055f7bd2a

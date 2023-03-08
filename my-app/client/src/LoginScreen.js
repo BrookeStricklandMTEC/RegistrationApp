@@ -1,10 +1,15 @@
+<<<<<<< HEAD
 import React, { useState } from 'react';
+=======
+import React, {useState, useRef, useEffect} from 'react';
+>>>>>>> 95533d18d286f0cc557efeaa3dd1614055f7bd2a
 import logo from "./IMG/Logo.jpg"
 import { Link } from 'react-router-dom';
 import { ToastContainer, toast } from 'react-toastify';    
 import Axios from 'axios';
 
 function Login() {
+<<<<<<< HEAD
 
     const [username, setUsername] = useState();
     const [password, setPassword] = useState();
@@ -78,6 +83,27 @@ function Login() {
                     <Link className='forgotPass'> Forgot Password </Link>
                     {/* idk if we will be able to do this function in time for project submission, might have to implement afterwards */}
                 </div>
+=======
+   return (
+      <>
+        <div className='whiteScreen'> 
+            <div className="inside">
+                <p className="welcomeText">Welcome,{"\n"}Glad to See You</p>
+                
+                {/* <div > messages.success_msg </div> */}
+                {/* <div > messages.error </div> */}
+
+                <div className='inputs'>
+                    <input placeholder="Username" className='input' required></input>
+                    <input type="password" placeholder="Password" className='input padtop' required></input>
+                </div>
+
+                <Link className='button1 padtop1' to={'/dashboard'}> Login </Link> 
+                <Link className='button1 padtop1' to={'/Register'}> Don't Have an Account? </Link> 
+                {/* ^^ add node function that reads users priviliges based off login info */}
+                <Link className='forgotPass'> Forgot Password </Link>
+                {/* idk if we will be able to do this function in time for project submission, might have to implement afterwards */}
+>>>>>>> 95533d18d286f0cc557efeaa3dd1614055f7bd2a
             </div>
         </>
     );
