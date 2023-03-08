@@ -32,7 +32,7 @@ app.post("/addUser", (req, res) => {
   console.log("post add User: ", ` ${req.body.username} `);
   db.addUser(req.body.username, req.body.firstname, req.body.lastname, req.body.email, req.body.password)
   res.json({ message: "Success" })
-})
+}) 
 
 
 // const users = [];
