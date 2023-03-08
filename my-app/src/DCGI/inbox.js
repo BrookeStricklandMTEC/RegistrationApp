@@ -8,28 +8,32 @@ import {
 
 
 function Inbox() {
-    return(
+    return (
         <>
+            <div className='userTittle'>
+                <p className='changingtittle'>Inbox</p>
+                <hr className='line'></hr>
+            </div>
             <div className="Email">
-            <section>
-                <div className="cont">
-                    <form action="https://formspree.io/f/mgeqoyzn" method="POST">
-                        <div className="form">
-                            <label for="userName" >Username</label>
-                            <input type="text" className="userName" name="Username" required />
-                        </div>
-                        <div className="form">
-                            <label for="message">Message</label>
-                            <textarea type="text" className="message" name="message" rows="16" required></textarea>
-                        </div>
-                        
-                        <button type="submit">Submit</button>
-                    </form>
-                </div>
-                
-            </section>
+                <section>
+                    <div className="cont">
+                        <form action="https://formspree.io/f/mgeqoyzn" method="POST">
+                            <div className="form">
+                                <label for="userName" >Username</label>
+                                <input type="text" className="userName" name="Username" required />
+                            </div>
+                            <div className="form">
+                                <label for="message">Message</label>
+                                <textarea type="text" className="message" name="message" rows="16" required></textarea>
+                            </div>
 
-        </div> 
+                            <button className="inboxbutton" type="submit">Submit</button>
+                        </form>
+                    </div>
+
+                </section>
+
+            </div>
         </>
     )
 }

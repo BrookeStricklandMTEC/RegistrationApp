@@ -32,6 +32,10 @@ function Calendar({ startingDate }) {
     }
     return (
         <>
+            <div className='userTittle'>
+                <p className='changingtittle'>Calendar</p>
+                <hr className='line'></hr>
+            </div>
             <div className='container'>
                 <div className='calendarHead'>
                     <FontAwesomeIcon onClick={prevMonth} icon={faLessThan} className="icon" />
@@ -45,7 +49,7 @@ function Calendar({ startingDate }) {
                 </div>
 
                 <div className='calenderBody' >
-                    {range(daysInMonth).map((day) => <span className={'styledDay ' +(day === new Date().getDay()-2 && currentMonth === new Date().getMonth() && currentYear === new Date().getFullYear() ? "today":"")}   id={day}  >{day}</span>)}
+                    {range(daysInMonth).map((day) => <span className={'styledDay ' + (day === new Date().getDay() - 2 && currentMonth === new Date().getMonth() && currentYear === new Date().getFullYear() ? "today" : "")} id={day}  >{day}</span>)}
                 </div>
             </div>
         </>
