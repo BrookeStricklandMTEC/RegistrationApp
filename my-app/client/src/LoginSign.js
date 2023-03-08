@@ -14,9 +14,10 @@ function gotoLog(){
 }
 function LoginSign() {
   return (
-        <div className='whiteScreen'>
+        
+          <div className='whiteScreen'>
             <div className="inside">
-             <img src={logo} alt="Logo" className='logo' />
+             <img src={logo} alt="Logo" className='logo1' />
                 <div className='buttons'>
                   {/* these will be links, <Link id="start" className="button" to={'/category'} > Start Game </Link> */}
                    <button className="button1" onClick={gotoLog}> Login </button>

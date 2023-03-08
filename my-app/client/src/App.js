@@ -7,6 +7,7 @@ import LoginSign from './LoginSign';
 import Login from './LoginScreen.js';
 import LoginScreen from './LoginScreen';
 import Register from './Register.js';
+import Dashboard from './user';
 
 
 function App() {
@@ -32,7 +33,7 @@ function App() {
       <Route path='/' element={<div className='whiteScreen'> <LoginSign> </LoginSign>  </div>} > </Route>
       <Route path='/LoginScreen' element={ <div className='whiteScreen'> <LoginScreen> </LoginScreen> </div>} > </Route>
       <Route path='/Register' element={ <div className='whiteScreen1'> <Register> </Register> </div>} > </Route>
-      <Route path='/dashboard' element={<div> Hello Student </div> }> </Route>
+      <Route path='/dashboard' element={<Dashboard></Dashboard>}> </Route>
       <Route path='/admindashboard' element={<div> Hello Admin </div>}> </Route>
     </Routes>
  )} 

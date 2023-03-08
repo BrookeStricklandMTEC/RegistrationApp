@@ -49,8 +49,8 @@ function Login() {
                     </div>
 
                     <div className='inputs'>
-                        <input placeholder="Username" className='input' required onChange={(e) => setUsername(e.target.value)}></input>
-                        <input type="password" placeholder="Password" className='input padtop' required onChange={(e) => setPassword (e.target.value)}></input>
+                        <input placeholder="Username" className='input1' required onChange={(e) => setUsername(e.target.value)}></input>
+                        <input type="password" placeholder="Password" className='input1 padtop' required onChange={(e) => setPassword (e.target.value)}></input>
                     </div>
 
                     <Link className='button1 padtop1' onClick={Submit}> Login </Link>
