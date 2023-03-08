@@ -29,6 +29,6 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "react-toastr": "^3.0.0"
+    "pg": "^8.9.0"
   }
 }
