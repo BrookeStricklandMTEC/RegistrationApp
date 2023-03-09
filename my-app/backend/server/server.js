@@ -8,6 +8,7 @@ const initializePassport = require('../auth/passport-config');
 const session = require('express-session');
 const cors = require('cors')
 const reactClientURL = 'http://localhost:3000' 
+
 app.use(cors({
   origin: reactClientURL, // <-- location of the react app were connecting to
   credentials: true,
