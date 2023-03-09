@@ -37,8 +37,9 @@ exports.getCourses = (req, res) => {
 
 exports.authUserByName = async (username) => {
     const results = await 
-    pool.query('SELECT * from users', [username])   
-    return json(results.rows[0]);
+    pool.query('SELECT * from users where username = $1', [username]);
+    console.log(results.rows[0]);
+    return results.rows[0];
 }
 
 

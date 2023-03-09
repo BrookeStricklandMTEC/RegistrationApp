@@ -4,8 +4,9 @@ const bcrypt = require('bcrypt')
 const passport = require('passport')
 
 function initialize(passport) {
-  const authenticateUser = (username, password, done) => {
+  const authenticateUser = async (username, password, done) => {
     console.log(username);
+<<<<<<< HEAD
     db.query(
       `SELECT * FROM users where username = $1`,
       [username],
@@ -13,29 +14,20 @@ function initialize(passport) {
         if (err) {
           console.log(err);
         }
+=======
+>>>>>>> c87f6a8b71c99a5db62dd70bbee409b58cb9c7ea
 
-        console.log(results.rows);
+    const user = await db.authUserByName(username)
+    if (!user) return done(null, false)
 
-        if (results.rows.length > 0) {
-          const user = results.rows[0]
-      
-          user.hash = bcrypt.hashSync(password, 10)
-          bcrypt.compare(password, user.hash, (err, isMatch) => {
-            if (err) {
-              throw err
-            }
-            if (isMatch ) {
-              return done(null, user);
-            } else {
-              return done(null, false, { message: "Password is incorrect" })
-            }
-          });
-        } else {
-          return done(null, false, { message: "Email is not registered" });
-        }
-    }
-  )
-}
+    user.hash = bcrypt.hashSync(password, 10)
+
+    const isMatch = bcrypt.compareSync(password, user.hash)
+
+    if (!isMatch) return done(null, false);
+    else return done(null, { username: user.username });
+  }
+
 
 function grabCourses(courses, done) {
   const allCourses = (courses, done) => {
@@ -60,6 +52,7 @@ function grabCourses(courses, done) {
 }
 
 passport.use(
+<<<<<<< HEAD
     new LocalStrategy({
       usernameField: "username",
       passwordField: "password",
@@ -68,11 +61,19 @@ passport.use(
     },
       authenticateUser
     )
+=======
+  new LocalStrategy({
+    usernameField: "username",
+    passwordField: "password",
+    adminField: "isadmin",
+  },
+    authenticateUser
+>>>>>>> c87f6a8b71c99a5db62dd70bbee409b58cb9c7ea
   )
-}
+)
 
-passport.serializeUser((user, done) => done(null, user.username));
 
+<<<<<<< HEAD
 passport.deserializeUser((id, done) => {
   db.query(
     `SELECT * FROM users WHERE username=$1`, [id], (err, results) => {
@@ -82,6 +83,17 @@ passport.deserializeUser((id, done) => {
       return done(null, results.rows[0])
     }
   )
+=======
+passport.serializeUser((user, done) => {
+  console.log(user)
+  done(null, user)
+>>>>>>> c87f6a8b71c99a5db62dd70bbee409b58cb9c7ea
 })
+passport.deserializeUser((id, done) => {
+  const user = db.authUserByName(username)
 
+  return done(null, user)
+
+})
+}
 module.exports = initialize;
