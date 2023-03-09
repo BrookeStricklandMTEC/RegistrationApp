@@ -32,6 +32,24 @@ passport.authenticate('local', {}), (req,res) => {
   res.json({ message: "Success", "isadmin": req.user.isadmin })
 }) 
 
+app.post('/dashboard', 
+passport.authenticate('local', {}), (req,res) => {
+  console.log(req.body.username);
+  console.log(req.body.password);
+  console.log(req.user)
+  res.json({ message: "Success", "isadmin": req.user.isadmin })
+}) 
+
+app.post('/dashboard-admin', 
+passport.authenticate('local', {}), (req,res) => {
+  console.log(req.body.username);
+  console.log(req.body.password);
+  console.log(req.user)
+  res.json({ message: "Success", "isadmin": req.user.isadmin })
+}) 
+
+
+
 
 function checkAuthenticated(req, res, next) {
   if (req.isAuthenticated()) {

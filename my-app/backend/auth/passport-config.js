@@ -11,7 +11,7 @@ function initialize(passport) {
       [username],
       (err, results) => {
         if (err) {
-          throw err;
+          console.log(err);
         }
 
         console.log(results.rows);
@@ -37,11 +37,34 @@ function initialize(passport) {
   )
 }
 
+function grabCourses(courses, done) {
+  const allCourses = (courses, done) => {
+    pool.query(
+      `SELECT * from courses WHERE courses = $1`,
+      [courses],
+      (err, results) => {
+        if (err) {
+          console.log(err);
+        }
+        console.log(results.row)
+        if (results.row.length > 0) {
+          const courses = results.row[0]
+          console.log(courses); 
+          if(err){
+            console.log(err); 
+          }
+        }
+      }
+    )
+  }
+}
+
 passport.use(
     new LocalStrategy({
       usernameField: "username",
       passwordField: "password",
       adminField: "isadmin",
+      coursesField: "courses",
     },
       authenticateUser
     )
@@ -60,5 +83,9 @@ passport.deserializeUser((id, done) => {
     }
   )
 })
+
+
+
+
 
 module.exports = initialize;

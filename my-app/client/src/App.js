@@ -32,8 +32,8 @@ function App() {
       <Route path='/' element={<div className='whiteScreen'> <LoginSign> </LoginSign>  </div>} > </Route>
       <Route path='/LoginScreen' element={ <div className='whiteScreen'> <LoginScreen> </LoginScreen> </div>} > </Route>
       <Route path='/Register' element={ <div className='whiteScreen1'> <Register> </Register> </div>} > </Route>
-      <Route path='/dashboard' element={<div> Hello Student </div> }> </Route>
-      <Route path='/admindashboard' element={<div> Hello Admin </div>}> </Route>
+      <Route path='/dashboard' element={<Dashboard></Dashboard>}> </Route>
+      <Route path='/admindashboard' element={<Dashboard></Dashboard>}> </Route>
     </Routes>
  )} 
  </Router>
