@@ -30,6 +30,7 @@ function Login() {
                 if(data.isadmin === true){
                     window.location.href = '/admindashboard';
                 } else {
+                    
                     window.location.href = '/dashboard'; 
                 }
         }) .catch((error) => {
