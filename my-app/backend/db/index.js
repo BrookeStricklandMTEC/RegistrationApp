@@ -11,4 +11,50 @@ const pool = new Pool({
   ssl: isProduction
 });
 
-module.exports = { pool };
+
+pool.connect();
+
+exports.getLogin = (req, res) => {
+    pool.query("SELECT * FROM users", (err, results) => {
+        if (err) throw err;
+        for (let row of results.rows) {
+            console.log(JSON.stringify(row));
+        }
+        res.status(200).json(results.rows);
+    })
+}
+
+
+exports.getCourses = (req, res) => {
+    pool.query("SELECT * FROM courses", (err, results) => {
+        if (err) throw err;
+        for (let row of results.rows) {
+            console.log(JSON.stringify(row));
+        }
+        res.status(200).json(results.rows);
+    })
+}
+
+exports.authUserByName = async (username) => {
+    const results = await 
+    pool.query('SELECT * from users', [username])   
+    return json(results.rows[0]);
+}
+
+
+exports.addUser = async (req, res) => {
+    const username = req.body.username
+    const firstname = req.body.firstname
+    const lastname = req.body.lastname
+    const email = req.body.email
+    const password = req.body.password
+    const values = [username, firstname, lastname, email, password, false]
+    const query = "insert into users (username, email, hash ,firstName, lastName, isadmin) VALUES ($1, $4, $5, $2, $3, $6)"
+    const result = await
+    pool.query(query, values)
+    res.json({ message: "Success" })
+}
+
+
+
+// module.exports = { pool };

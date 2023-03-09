@@ -119,11 +119,11 @@ function Register() {
         <div className="inside">
           <p className="welcomeText">Create a Account, To Get Started</p>
           <div className='inputs'>
-            <input placeholder="Username" id="username" className='input' required onChange={(e) => { setUsername(e.target.value) }}></input>
-            <input placeholder="First Name" id="firstName" className='input padtop' required onChange={(e) => { setFirstname(e.target.value) }}></input>
-            <input placeholder="Last Name" id="lastName" className='input padtop' required onChange={(e) => { setLastname(e.target.value) }}></input>
-            <input type='email' placeholder="Email" id="email" className='input padtop' required onChange={(e) => { setEmail(e.target.value) }}></input>
-            <input type="password" placeholder="Password" id="password" className='input padtop' required onChange={(e) => { setPassword(e.target.value) }}></input>
+            <input placeholder="Username" id="username" className='input1' required onChange={(e) => { setUsername(e.target.value) }}></input>
+            <input placeholder="First Name" id="firstName" className='input1 padtop' required onChange={(e) => { setFirstname(e.target.value) }}></input>
+            <input placeholder="Last Name" id="lastName" className='input1 padtop' required onChange={(e) => { setLastname(e.target.value) }}></input>
+            <input type='email' placeholder="Email" id="email" className='input1 padtop' required onChange={(e) => { setEmail(e.target.value) }}></input>
+            <input type="password" placeholder="Password" id="password" className='input1 padtop' required onChange={(e) => { setPassword(e.target.value) }}></input>
           </div>
           <button className='button1 padtop2' onClick={Submit}>Sign Up</button>
 
