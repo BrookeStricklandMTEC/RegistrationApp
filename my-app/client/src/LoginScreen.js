@@ -8,14 +8,42 @@ import { Link } from 'react-router-dom';
 import Axios from 'axios';
 import LoginScreen from './LoginScreen';
 import Dashboard from './user.js'
+import Admin from './Admin'
 
 
 function Login() {
-
     const [username, setUsername] = useState();
     const [password, setPassword] = useState();
     
     function Submit() {
+        if (document.getElementsByClassName("input1").value === "") {
+            console.log('username not inputed')
+            toast.error('Please Put In Your Username', {
+            position: "top-right",
+            autoClose: 5000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "dark",
+        });
+       }
+    
+        if (document.getElementsByClassName("input1 padtop").value === "") {
+            console.log('password not inputed')
+            toast.error('Please Put In Your Password', {
+                position: "top-right",
+                autoClose: 5000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme: "dark",
+            });
+        }
+
         fetch("/login", {
             method: "POST",
             headers: {
@@ -27,12 +55,10 @@ function Login() {
             })
         }).then((res) => res.json())
             .then(data => {
-                // (data.message)
                 console.log(data, data.message, data.isadmin);
                 if(data.isadmin === true){
                     window.location.href = '/dashboard-admin';
                 } else {
-                    
                     window.location.href = '/dashboard'; 
                 }
         }) .catch((error) => {
@@ -44,7 +70,7 @@ function Login() {
         <>
             <div className='whiteScreen'>
                 <div className="inside">
-                    <p className="welcomeText">Welcome,{"\n"}Glad to See You</p>
+                    <p className="welcomeText"> Welcome, Glad to See You </p>
 
                     <div className ='flash-messages'> 
                         {/* toastr */}
@@ -58,9 +84,6 @@ function Login() {
 
                     <Link className='button1 padtop1' onClick={Submit}> Login </Link>
                     <Link className='button1 padtop1' to={'/Register'}> Don't Have an Account? </Link>
-                    {/* ^^ add node function that reads users priviliges based off login info */}
-                    <Link className='forgotPass'> Forgot Password </Link>
-                    {/* idk if we will be able to do this function in time for project submission, might have to implement afterwards */}
                 </div>
             </div>
         </>

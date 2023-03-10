@@ -55,7 +55,3 @@ exports.addUser = async (req, res) => {
     pool.query(query, values)
     res.json({ message: "Success" })
 }
-
-
-
-// module.exports = { pool };
