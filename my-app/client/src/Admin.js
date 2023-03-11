@@ -17,9 +17,7 @@ import Calendar from './DCGI/calendar';
 import Inbox from './DCGI/inbox';
 import MainScreen from './DCGI/dashboard';
 
-
 var open = false;
-
 
 function Dashboard() {
   const [dashboardScreen, setDashboardScreen] = useState("1")
