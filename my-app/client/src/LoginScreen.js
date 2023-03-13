@@ -69,10 +69,7 @@ function Login() {
                 if(data.isadmin === true){
                     window.location.href = '/dashboard-admin';
                 } else {
-<<<<<<< HEAD
 
-=======
->>>>>>> refs/remotes/origin/merging
                     window.location.href = '/dashboard'; 
                     
                 }

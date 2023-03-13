@@ -34,8 +34,8 @@ app.use(passport.session());
 initializePassport(passport);
 
 app.get("/courses", async (req, res)=>{
-
-  console.log(req.user)
+  console.log("bob")
+  console.log(req.user.username)
   const courses = await db.getUserCourses(req.user.username)
   res.json({ message: "Success", courses: courses  })
 })

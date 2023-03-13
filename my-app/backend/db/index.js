@@ -25,8 +25,9 @@ exports.getLogin = (req, res) => {
 }
 
 exports.getUserCourses = async (username) => {
-    
+    console.log(username)
     const results = await pool.query('SELECT courses from users where username = $1', [username])
+    console.log(results)
     let res = results.rows[0].courses.split(',')
     let coursesIntArray = []
     for(let x = 0; x<res.length; x++){
