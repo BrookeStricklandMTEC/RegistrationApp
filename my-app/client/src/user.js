@@ -31,6 +31,7 @@ function Dashboard() {
         if (dashboardScreen === "1") {
             return (
                 <MainScreen />
+                
             )
         } else if (dashboardScreen === "2") {
             return (

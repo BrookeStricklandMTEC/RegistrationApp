@@ -1,12 +1,11 @@
 import './dashboard.css';
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
     faPlus,
     faSchool,
     faChalkboardUser
 } from '@fortawesome/free-solid-svg-icons';
-
 
 function DahsboardClasses(){
     function set({ target }) {
@@ -20,6 +19,7 @@ function DahsboardClasses(){
             panel.style.maxHeight = panel.scrollHeight + "px";
             target.textContent = "Close Class"
         }
+        
     }
     return(
         <>
@@ -46,7 +46,7 @@ function DahsboardClasses(){
                         <p>This course will introduce students to the fundamental concepts behind computers and computer programming. Topics covered include basic programming logic, algorithm development, computer architecture, and software engineering.</p>
                     </div>
                     <div className='panel-right'>
-                        <p className='numberOfStudents'>16<p>/30</p></p>
+                        <p className='numberOfStudents'>16<span>/30</span></p>
                     </div>
                 </div>
                 <div className='panel-bottom'>
@@ -60,7 +60,24 @@ function DahsboardClasses(){
 }
 
 function MainScreen() {
-
+    function useData(data){
+        console.log(data.courses)
+    }
+    useEffect(() =>{
+        fetch("/courses", {
+            method: "GET",
+            headers: {
+                "Content-Type": "application/json"
+            },
+    
+        }).then((res) => res.json())
+            .then(data => {
+                console.log(data)
+                
+        }) .catch((error) => {
+            console.log(error)
+          })
+    })
     return (
         <>
             <div className='userTittle'>
@@ -69,7 +86,7 @@ function MainScreen() {
             </div>
 
             <div className='classes'>
-               <DahsboardClasses />
+               {useData}
                
             </div>
             <div className='join'>

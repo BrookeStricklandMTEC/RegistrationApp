@@ -1,9 +1,8 @@
 import React, { useState } from 'react';
 import logo from "./IMG/Logo.jpg"
-
+import usersData from './DCGI/dashboard'
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-
 import { Link } from 'react-router-dom';
 import Axios from 'axios';
 import LoginScreen from './LoginScreen';
@@ -30,8 +29,9 @@ function Login() {
                 if(data.isadmin === true){
                     window.location.href = '/admindashboard';
                 } else {
-                    
+
                     window.location.href = '/dashboard'; 
+                    
                 }
         }) .catch((error) => {
             console.log(error)

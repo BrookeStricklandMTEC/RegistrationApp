@@ -33,6 +33,13 @@ app.use(passport.session());
 
 initializePassport(passport);
 
+app.get("/courses", async (req, res)=>{
+
+  console.log(req.user)
+  const courses = await db.getUserCourses(req.user.username)
+  res.json({ message: "Success", courses: courses  })
+})
+
 // app.post("/addUser", (req, res) => {
 //   console.log("post add User: ", ` ${req.body.username} `);
 //   db.addUser(req.body.username, req.body.firstname, req.body.lastname, req.body.email, req.body.password)
