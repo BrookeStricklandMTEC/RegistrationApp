@@ -9,6 +9,7 @@ import { DAYS, range, MONTHS, getDaysInMonth, getSortDays, areDatesTheSame, getD
 
 
 function Calendar({ startingDate }) {
+
     const [currentMonth, setCurrentmonth] = useState(startingDate.getMonth())
     const [currentYear, setCurrentyear] = useState(startingDate.getFullYear())
     const daysInMonth = getDaysInMonth(currentMonth, currentYear)

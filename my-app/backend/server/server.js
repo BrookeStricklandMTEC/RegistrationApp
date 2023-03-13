@@ -1,19 +1,19 @@
 const express = require('express');
 const app = express();
 const PORT = process.env.PORT || 4000; 
-const db = require('../db/index')
+const db = require('../db/index');
 const bcrypt = require('bcrypt');
 const passport = require('passport');
 const initializePassport = require('../auth/passport-config');
 const session = require('express-session');
-const cors = require('cors')
-const reactClientURL = 'http://localhost:3000' 
+const cors = require('cors');
+const reactClientURL = 'http://localhost:3000'; 
+
 app.use(cors({
-  origin: reactClientURL, // <-- location of the react app were connecting to
+  origin: reactClientURL, 
   credentials: true,
 })
 )
-
 
 app.use(express.urlencoded({extended:false}))
 
@@ -50,8 +50,6 @@ app.post("/addUser", db.addUser)
 
 app.post('/login', 
 passport.authenticate('local', {}), (req,res) => {
-  console.log(req.user)
-  
   res.json({ message: "Success", "isadmin": req.user.isadmin })
 }) 
 

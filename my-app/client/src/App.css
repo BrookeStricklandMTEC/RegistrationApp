@@ -1,5 +1,6 @@
 body{
   background-color: #7661fA;
+  /* if you add body,html it will change, but it changes the dashboard color too */
 }
 
 .whiteScreen{

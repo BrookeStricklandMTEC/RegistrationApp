@@ -10,13 +10,14 @@ function initialize(passport) {
     user.hash = bcrypt.hashSync(password, 10)
     const isMatch = bcrypt.compareSync(password, user.hash)
     if (!isMatch) return done(null, false);
-    else return done(null, user);
+    else return done(null, { isadmin: user.isadmin });
   }
+
+
   passport.use(
     new LocalStrategy({
       usernameField: "username",
       passwordField: "password",
-      adminField: 'isadmin',
     },
       authenticateUser
     )
@@ -29,4 +30,5 @@ function initialize(passport) {
     return done(null, user)
   })
 }
+
 module.exports = initialize;

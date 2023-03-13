@@ -21,7 +21,7 @@ function Register() {
           if (document.getElementById("email").value !== "") {
             if (document.getElementById("password").value !== "") {
               if (password.length < 7) {
-                toast.error('Your Password Has To Be At Least 7 Characters Long', {
+                toast.error('Your Password Must Be At Least 7 Characters Long', {
                   position: "top-right",
                   autoClose: 5000,
                   hideProgressBar: false,
@@ -53,7 +53,7 @@ function Register() {
               }
 
             } else {
-              toast.error('Please Put In Your Password', {
+              toast.error('Please Input Your Password', {
                 position: "top-right",
                 autoClose: 5000,
                 hideProgressBar: false,
@@ -65,7 +65,7 @@ function Register() {
               });
             }
           } else {
-            toast.error('Please Put In Your Email', {
+            toast.error('Please Input Your Email', {
               position: "top-right",
               autoClose: 5000,
               hideProgressBar: false,
@@ -77,7 +77,7 @@ function Register() {
             });
           }
         } else {
-          toast.error('Please Put In Your Last Name', {
+          toast.error('Please Input Your Last Name', {
             position: "top-right",
             autoClose: 5000,
             hideProgressBar: false,
@@ -89,7 +89,7 @@ function Register() {
           });
         }
       } else {
-        toast.error('Please Put In Your First Name', {
+        toast.error('Please Input Your First Name', {
           position: "top-right",
           autoClose: 5000,
           hideProgressBar: false,
@@ -101,7 +101,7 @@ function Register() {
         });
       }
     } else {
-      toast.error('Please Put In Your Username', {
+      toast.error('Please Input Your Username', {
         position: "top-right",
         autoClose: 5000,
         hideProgressBar: false,
@@ -126,7 +126,6 @@ function Register() {
             <input type="password" placeholder="Password" id="password" className='input1 padtop' required onChange={(e) => { setPassword(e.target.value) }}></input>
           </div>
           <button className='button1 padtop2' onClick={Submit}>Sign Up</button>
-
         </div>
       </div>
 

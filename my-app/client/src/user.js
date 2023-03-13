@@ -16,17 +16,15 @@ import userLogo from "./IMG/userLogo.png"
 import Calendar from './DCGI/calendar';
 import Inbox from './DCGI/inbox';
 import MainScreen from './DCGI/dashboard';
+
 var open = false;
 
 function Dashboard() {
-    
     const [dashboardScreen, setDashboardScreen] = useState("1")
     function updateDashboardScreen({ currentTarget }) {
         setDashboardScreen(currentTarget.id)
-        console.log(currentTarget.id)
         running()
     }
-
     function running() {
         if (dashboardScreen === "1") {
             return (
@@ -35,7 +33,7 @@ function Dashboard() {
             )
         } else if (dashboardScreen === "2") {
             return (
-                <Calendar startingDate={new Date} />
+                <Calendar startingDate={new Date}> </Calendar> 
             )
         } else if (dashboardScreen === "3") {
             return (
@@ -48,7 +46,6 @@ function Dashboard() {
             )
         }
     }
-    // dashboardScreen.onchange = running()
     return (
         <>
             <div className='sidebar' id="mysidebar">
@@ -65,13 +62,11 @@ function Dashboard() {
                     <div className='a' id="4" onClick={updateDashboardScreen}>
                         <FontAwesomeIcon icon={faEnvelope} className="icon" /> <a className="text" > Inbox</a>
                     </div>
-
                 </div>
                 <div className="bottom" id="bottom">
                     <FontAwesomeIcon icon={faArrowsLeftRight} className="arrow" onClick={openClose} />
                 </div>
             </div>
-
             <div className="topbar">
                 <div className="left">
                     <img src={logo} alt="Logo" className='logo' />
@@ -81,7 +76,6 @@ function Dashboard() {
                         <FontAwesomeIcon icon={faSearch} className="searchIcon" />
                         <input className='input' placeholder='Search'></input>
                     </div>
-
                     <div className="dropdown">
                         <img src={userLogo} alt="Logo" className='user dropbtn' onClick={myFunction} />
                         <div id="myDropdown" className="dropdown-content">
@@ -90,20 +84,14 @@ function Dashboard() {
                             <a href="#contact">Profile</a>
                         </div>
                     </div>
-
                 </div>
             </div>
-
-
             <div id="main">
-
                 {running()}
             </div>
         </>
-            
     )
 }
-
 function openClose() {
     if (open === false) {
         document.getElementById("mysidebar").style.width = "75px";
@@ -111,7 +99,6 @@ function openClose() {
         document.querySelectorAll(".text").forEach(element => {
             element.innerHTML = ""
         })
-
         open = true
     } else if (open === true) {
         document.getElementById("mysidebar").style.width = "200px";
@@ -119,7 +106,6 @@ function openClose() {
         var run = 1
         delay(700).then(() =>
             document.querySelectorAll(".text").forEach(element => {
-
                 if (run === 1) {
                     element.innerHTML = " Dashboard"
                 } else if (run === 2) {
@@ -132,16 +118,13 @@ function openClose() {
                 run++
             })
         )
-
         open = false
     }
 }
-
 function myFunction() {
     console.log("Hello")
     document.getElementById("myDropdown").classList.toggle("show");
 }
-
 window.onclick = function (event) {
     if (!event.target.matches('.dropbtn')) {
         var dropdowns = document.getElementsByClassName("dropdown-content");
@@ -154,10 +137,7 @@ window.onclick = function (event) {
         }
     }
 }
-
 function delay(time) {
     return new Promise(resolve => setTimeout(resolve, time));
 }
-
-
-export default Dashboard; 
+export default Dashboard;

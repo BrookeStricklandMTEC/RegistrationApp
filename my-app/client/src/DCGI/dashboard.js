@@ -43,15 +43,15 @@ function DahsboardClasses(){
                 <div className='lr'>
                     <div className='panel-left'>
                         <span className='panel-tittle'>Introduction: </span>
-                        <p>This course will introduce students to the fundamental concepts behind computers and computer programming. Topics covered include basic programming logic, algorithm development, computer architecture, and software engineering.</p>
+                        <p >This course will introduce students to the fundamental concepts behind computers and computer programming. Topics covered include basic programming logic, algorithm development, computer architecture, and software engineering.</p>
                     </div>
                     <div className='panel-right'>
                         <p className='numberOfStudents'>16<span>/30</span></p>
                     </div>
                 </div>
                 <div className='panel-bottom'>
-                    <p className='panel-mt'>Classroom Schedule: <span className='panel-black'>Monday, Wensday, Friday: 9-10</span></p>
-                    <p className='panel-mt'>Credit Hours: <span className='panel-black'>2</span></p>
+                    <p className='panel-mt'>Classroom Schedule: <span className='panel-black'> Monday, Wensday, Friday: 9-10 </span></p>
+                    <p className='panel-mt'>Credit Hours: <span className='panel-black' > 2 </span></p>
                     <p className='panel-mt'>Tuition Cost: <span className='panel-black'>$ 900.00</span></p>
                 </div>
             </div>            
