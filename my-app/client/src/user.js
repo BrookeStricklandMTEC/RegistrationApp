@@ -16,12 +16,13 @@ import userLogo from "./IMG/userLogo.png"
 import Calendar from './DCGI/calendar';
 import Inbox from './DCGI/inbox';
 import MainScreen from './DCGI/dashboard';
+
 var open = false;
+
 function Dashboard() {
     const [dashboardScreen, setDashboardScreen] = useState("1")
     function updateDashboardScreen({ currentTarget }) {
         setDashboardScreen(currentTarget.id)
-        console.log(currentTarget.id)
         running()
     }
     function running() {
@@ -31,7 +32,7 @@ function Dashboard() {
             )
         } else if (dashboardScreen === "2") {
             return (
-                <Calendar startingDate={new Date} />
+                <Calendar startingDate={new Date}> </Calendar> 
             )
         } else if (dashboardScreen === "3") {
             return (
@@ -44,7 +45,6 @@ function Dashboard() {
             )
         }
     }
-    // dashboardScreen.onchange = running()
     return (
         <>
             <div className='sidebar' id="mysidebar">

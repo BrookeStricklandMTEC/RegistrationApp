@@ -5,10 +5,7 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 import { Link } from 'react-router-dom';
-import Axios from 'axios';
-import LoginScreen from './LoginScreen';
-import Dashboard from './user.js'
-import Admin from './Admin'
+
 
 
 function Login() {
@@ -16,9 +13,9 @@ function Login() {
     const [password, setPassword] = useState();
     
     function Submit() {
-        if (document.getElementsByClassName("input1").value === "") {
+        if (document.getElementById("login-username").value === "") {
             console.log('username not inputed')
-            toast.error('Please Put In Your Username', {
+            toast.error('Please Input Your Username', {
             position: "top-right",
             autoClose: 5000,
             hideProgressBar: false,
@@ -30,9 +27,23 @@ function Login() {
         });
        }
     
-        if (document.getElementsByClassName("input1 padtop").value === "") {
+        if (document.getElementById("login-password").value === "") {
             console.log('password not inputed')
-            toast.error('Please Put In Your Password', {
+            toast.error('Please Input Your Password', {
+                position: "top-right",
+                autoClose: 5000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme: "dark",
+            });
+        }
+
+        else {
+            console.log('wrong username or password')
+            toast.error('Username or Password is Incorrect', {
                 position: "top-right",
                 autoClose: 5000,
                 hideProgressBar: false,
@@ -72,24 +83,20 @@ function Login() {
                 <div className="inside">
                     <p className="welcomeText"> Welcome, Glad to See You </p>
 
-                    <div className ='flash-messages'> 
-                        {/* toastr */}
-                        {/* toastr */}
-                    </div>
-
                     <div className='inputs'>
-                        <input placeholder="Username" className='input1' required onChange={(e) => setUsername(e.target.value)}></input>
-                        <input type="password" placeholder="Password" className='input1 padtop' required onChange={(e) => setPassword (e.target.value)}></input>
+                        <input placeholder="Username" id='login-username' className='input1' required onChange={(e) => setUsername(e.target.value)}></input>
+                        <input type="password" id='login-password' placeholder="Password" className='input1 padtop' required onChange={(e) => setPassword (e.target.value)}></input>
                     </div>
 
                     <Link className='button1 padtop1' onClick={Submit}> Login </Link>
                     <Link className='button1 padtop1' to={'/Register'}> Don't Have an Account? </Link>
                 </div>
             </div>
+            <ToastContainer />
         </>
     );
 }
 
-<ToastContainer />
+
 
 export default Login

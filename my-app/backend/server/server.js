@@ -37,7 +37,6 @@ app.post("/addUser", db.addUser)
 
 app.post('/login', 
 passport.authenticate('local', {}), (req,res) => {
-  console.log('hello', req.user)
   res.json({ message: "Success", "isadmin": req.user.isadmin })
 }) 
 
